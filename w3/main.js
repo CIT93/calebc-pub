@@ -1,5 +1,8 @@
+let carbonPoint = 0;
+//const numInHouse = 6;
+
 function deterHousePts(numInHouse) {
-    console.log("Inside the function");
+    console.log("Inside the function deterHousePts");
     if (numInHouse === 1) {
       carbonPoint = carbonPoint + 14;
     } else if (numInHouse === 2) {
@@ -15,14 +18,22 @@ function deterHousePts(numInHouse) {
     } else if (numInHouse > 6) {
       carbonPoint = carbonPoint + 2;
     }
-    console.log(
-      `Bases on the number of members in the household of ${numInHouse} the points would be ${carbonPoint}.` );
+    console.log(`Bases on the number of members in the household of ${numInHouse} the points would be ${carbonPoint}.` );
     
 }
-
-let carbonPoint = 0;
-//const numInHouse = 6;
-
 //global scope
-deterHousePts(3)
-deterHousePts(4)
+deterHousePts(6);
+
+function sizeHousePts(size) {
+    if (size === "large") {
+        carbonPoint = carbonPoint + 10;
+    } else if (size === "medium") {
+        carbonPoint = carbonPoint + 7;
+    } else if (size === "small") {
+        carbonPoint = carbonPoint + 4;
+    } else if (size === "apartment") {
+        carbonPoint = carbonPoint + 2;
+    }
+    console.log(`The House Size is ${size} so the points will be ${carbonPoint}.`);
+}
+sizeHousePts("medium");
