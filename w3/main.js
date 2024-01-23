@@ -37,3 +37,5 @@ function sizeHousePts(size) {
     console.log(`The House Size is ${size} so the points will be ${carbonPoint}.`);
 }
 sizeHousePts("medium");
+const element = document.querySelector("h2");
+element.textContent = carbonPoint;
