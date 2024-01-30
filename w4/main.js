@@ -53,32 +53,25 @@ function displayOutput() {
     console.log(arr);
     //First 3 and so is to create a elementId which would be the first part
     //of the output (parentNode, asked chatGPT what is appendChild)
-    const outputMem = document.getElementById("outputMem");
-    const outputnewP = document.getElementById("outputnewP");
-    const outputSize = document.getElementById("outputSize");
-    const outputHouPTS = document.getElementById("outputHouPTS");
-    const outSizePTS = document.getElementById("outSizePTS");
+    const output = document.getElementById("output");
+    const output2 = document.getElementById("output2");
     //The next 3 and so const are the element or what letter format the
     //output would be the last part of output
     const houseMem = document.createElement("p");
-    const newP = document.createElement("p");
+    const newP = document.createElement("h1");
     const newSize = document.createElement("p");
-    const houPTS = document.createElement("p");
-    const sizePTS = document.createElement("p");
-    
+    const newOut = document.createElement("p");
     //The next 3 and so is to follow up the previous code and display what the output would be in the 
     //element (childNode)
-    houseMem.textContent = `# of house members is ${arr[0]}`;
+    houseMem.textContent = `# of house members is ${arr[0]} and points of household ${arr[2]}`;
     newP.textContent = `Carbon Footprint total is ${arr[4]}`;
-    newSize.textContent = `The size of the house is ${arr[1]}`;
-    houPTS.textContent = `The points of the household is ${arr[2]}`;
-    sizePTS.textContent = `The points of the house size is ${arr[3]}`;
+    newSize.textContent = `The size of the house is ${arr[1]} and points of house size ${arr[3]}`;
+    newOut.textContent = "===================================================";
     //output is parentNode & (parA) (newP) is childNode. 
-    outputMem.appendChild(houseMem);
-    outputnewP.appendChild(newP);
-    outputSize.appendChild(newSize);
-    outputHouPTS.appendChild(houPTS);
-    outSizePTS.appendChild(sizePTS);
+    output.appendChild(newP);
+    output.appendChild(houseMem);
+    output.appendChild(newSize);
+    output.appendChild(newOut);
   }
 }
 
