@@ -88,13 +88,16 @@ function displayOutput() {
     const houseMem = document.createElement("p");
     const newSize = document.createElement("p");
     const newOut = document.createElement("p");
+    const carTitle = document.createElement("b");
+    carTitle.textContent = "Week 5 - Public Repo in function"
     houseMem.textContent = `# of house members is ${obj.houseMem} and points of household ${obj.householdObj}`;
     newSize.textContent = `The size of the house is ${obj.sizeObj} and points of house size ${obj.sizeholdObj}`;
     newOut.textContent = "===================================================";
+    output.appendChild(carTitle);
     output.appendChild(houseMem);
     output.appendChild(newSize);
     output.appendChild(newOut);
-    }
+  }
 }
 
 start(6, "medium");
