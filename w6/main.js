@@ -41,7 +41,9 @@ function sizeHousePts(size) {
 const element = document.querySelector("h2");
 console.log("global scope");
 
-function start(numHouse, houseSize) {
+function start(firstName, lastName, numHouse, houseSize) {
+  const fName = firstName;
+  const lName = lastName;
   const houseHoldPTS = deterHousePts(numHouse);
   const sizeHoldPTS = sizeHousePts(houseSize);
   const total = houseHoldPTS + sizeHoldPTS;
@@ -52,6 +54,9 @@ function start(numHouse, houseSize) {
     householdObj: houseHoldPTS,
     sizeholdObj: sizeHoldPTS,
     totObj: total,
+    firstN: fName,
+    lastN: lName,
+
   });
 
 };
@@ -66,7 +71,8 @@ function displayOutput() {
     const newSize = document.createElement("p");
     const newOut = document.createElement("p");
     const carTitle = document.createElement("b");
-    carTitle.textContent = "Week 5 - Public Repo in function"
+    carTitle.textContent = "Week 6 - Public Repo in function"
+    carTitle.textContent = `Hello ${obj.firstN} ${obj.lastN}! This is your CF`
     houseMem.textContent = `# of house members is ${obj.houseMem} and points of household ${obj.householdObj}`;
     newSize.textContent = `The size of the house is ${obj.sizeObj} and points of house size ${obj.sizeholdObj}`;
     newOut.textContent = "===================================================";
@@ -88,14 +94,8 @@ FORM.addEventListener('submit', function(e){
   console.log(lastName);
   console.log("The number of memebers:",numHouse);
   console.log("The size of the house:",houseSize);
-  start(numHouse, houseSize);
+  start(firstName, lastName, numHouse, houseSize);
   OUTPUT.innerHTML = "";
   displayOutput();
   FORM.reset();
 })
-
-//The apartment score is correct in my code but the reason it's not working is due to 
-//The abbriviation of apt in the code video as it doesn't register it as apartment
-//so the value doesn't go through
-
-//to make sure the data given is false/messed up as it will cause errors in multiple places in JS
