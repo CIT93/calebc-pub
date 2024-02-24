@@ -5,7 +5,7 @@ import {deterHousePts, sizeHousePts} from "./funCF.js";
 const FORM = document.getElementById("form");
 const OUTPUT = document.getElementById("output");
 
-let cfpData = [];
+const cfpData = [];
 console.log("Top of file");
 console.log("global scope");
 
