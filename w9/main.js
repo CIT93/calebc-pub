@@ -1,6 +1,6 @@
 import { renderTbl } from "./render.js";
 import {deterHousePts, sizeHousePts} from "./funCF.js";
-import { FORM, userF, userL, errorElement } from "./global.js";
+import { FORM } from "./global.js";
 import {saveLS, cfpData} from "./storage.js";
 
 function start(firstName, lastName, numHouse, houseSize) {
@@ -21,30 +21,38 @@ function start(firstName, lastName, numHouse, houseSize) {
   });
 
 };
-
-
-FORM.addEventListener('submit', (e) => {
-  let messages = []
-  if(userF.value === '' || userF.value === null) {
-    messages.push('First Name is required')
+const validateField = event => {
+  const field = event.target.value
+  const fieldId = event.target.id
+  const fieldError = document.getElementById(`${fieldId}Error`)
+  if (field === '') {
+    fieldError.textContent = `${fieldId} is required`
+    event.target.classList.add('invalid')
   }
-  if(userL.value === '' || userL.value === null) {
-    messages.push('Last Name is required')
+  else {
+    fieldError.textContent = ''
+    event.target.classList.remove('invalid')
   }
+}
+document.getElementById('firstName').addEventListener('blur', validateField);
+document.getElementById('lastName').addEventListener('blur', validateField);
 
+renderTbl(cfpData)
 
-  if(messages.length > 0) {
-    e.preventDefault();
-    errorElement.innerText = messages.join(', ')
+FORM.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const firstNameIsValid = document.getElementById('firstName').value !== '';
+  const lastNameIsValid = document.getElementById('lastName').value !== '';
+  if (firstNameIsValid && lastNameIsValid) {
+    const firstName = FORM.firstname.value;
+    const lastName = FORM.lastname.value;
+    const numHouse = parseInt(FORM.numhouse.value);
+    const houseSize = FORM.housesize.value;
+    start(firstName, lastName, numHouse, houseSize);
+    saveLS(cfpData);
+    renderTbl(cfpData)
+    FORM.reset();
   }
-  const firstName = FORM.firstname.value;
-  const lastName = FORM.lastname.value;
-  const numHouse = parseInt(FORM.numhouse.value);
-  const houseSize = FORM.housesize.value;
-  start(firstName, lastName, numHouse, houseSize);
-  saveLS(cfpData);
-  renderTbl(cfpData)
-  FORM.reset();
 })
 //Week 9 Custom Form Validation
 //1. Done
