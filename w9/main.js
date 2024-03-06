@@ -21,6 +21,7 @@ function start(firstName, lastName, numHouse, houseSize) {
   });
 
 };
+
 const validateField = event => {
   const field = event.target.value
   const fieldId = event.target.id
@@ -30,19 +31,17 @@ const validateField = event => {
     event.target.classList.add('invalid')
   }
   else {
-    fieldError.textContent = ''
-    event.target.classList.remove('invalid')
+    fieldError.textContent = '';
+    event.target.classList.remove('invalid');
   }
 }
-document.getElementById('firstName').addEventListener('blur', validateField);
-document.getElementById('lastName').addEventListener('blur', validateField);
-
-renderTbl(cfpData)
+document.getElementById('firstname').addEventListener('blur', validateField);
+document.getElementById('lastname').addEventListener('blur', validateField);
 
 FORM.addEventListener('submit', function(e) {
   e.preventDefault();
-  const firstNameIsValid = document.getElementById('firstName').value !== '';
-  const lastNameIsValid = document.getElementById('lastName').value !== '';
+  const firstNameIsValid = document.getElementById('firstname').value !== '';
+  const lastNameIsValid = document.getElementById('lastname').value !== '';
   if (firstNameIsValid && lastNameIsValid) {
     const firstName = FORM.firstname.value;
     const lastName = FORM.lastname.value;
