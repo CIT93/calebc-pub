@@ -3,6 +3,10 @@ import {deterHousePts, sizeHousePts} from "./funCF.js";
 import { FORM } from "./global.js";
 import {saveLS, cfpData} from "./storage.js";
 
+const firstNameEl = document.getElementById('firstname');
+const lastNameEl = document.getElementById('lastname');
+const submitEl = document.getElementById("SubmitError");
+
 function start(firstName, lastName, numHouse, houseSize) {
   const fName = firstName;
   const lName = lastName;
@@ -22,7 +26,9 @@ function start(firstName, lastName, numHouse, houseSize) {
 
 };
 
-const validateField = event => {
+renderTbl(cfpData)
+
+function validateField(event) {
   const field = event.target.value
   const fieldId = event.target.id
   const fieldError = document.getElementById(`${fieldId}Error`)
@@ -35,16 +41,16 @@ const validateField = event => {
     event.target.classList.remove('invalid');
   }
 }
+//attach blur eventlisteners
 document.getElementById('firstname').addEventListener('blur', validateField);
 document.getElementById('lastname').addEventListener('blur', validateField);
-
-renderTbl(cfpData)
 
 FORM.addEventListener('submit', function(e) {
   e.preventDefault();
   const firstNameIsValid = document.getElementById('firstname').value !== '';
   const lastNameIsValid = document.getElementById('lastname').value !== '';
   if (firstNameIsValid && lastNameIsValid) {
+    submitEl.textContent = '';
     const firstName = FORM.firstname.value;
     const lastName = FORM.lastname.value;
     const numHouse = parseInt(FORM.numhouse.value);
@@ -53,6 +59,9 @@ FORM.addEventListener('submit', function(e) {
     saveLS(cfpData);
     renderTbl(cfpData)
     FORM.reset();
+  }
+  else{
+    submitEl.textContent = "Form requires first and last name";
   }
 })
 //Week 9 Custom Form Validation
