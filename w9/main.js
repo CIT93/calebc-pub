@@ -38,6 +38,8 @@ const validateField = event => {
 document.getElementById('firstname').addEventListener('blur', validateField);
 document.getElementById('lastname').addEventListener('blur', validateField);
 
+renderTbl(cfpData)
+
 FORM.addEventListener('submit', function(e) {
   e.preventDefault();
   const firstNameIsValid = document.getElementById('firstname').value !== '';
