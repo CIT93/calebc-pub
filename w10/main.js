@@ -1,13 +1,9 @@
 import { renderTbl } from "./render.js";
 import {deterHousePts, sizeHousePts} from "./funCF.js";
-import { FORM } from "./global.js";
+import { FORM, FNAME, LNAME, SUBMIT } from "./global.js";
 import {saveLS, cfpData} from "./storage.js";
 
-const firstNameEl = document.getElementById('firstname');
-const lastNameEl = document.getElementById('lastname');
-const submitEl = document.getElementById("SubmitError");
-
-function start(firstName, lastName, numHouse, houseSize) {
+const start = function (firstName, lastName, numHouse, houseSize) {
   const fName = firstName;
   const lName = lastName;
   const houseHoldPTS = deterHousePts(numHouse);
@@ -32,7 +28,7 @@ if (cfpData.length > 0){
   renderTbl(cfpData)
 }
 
-function validateField(event) {
+ const validateField = function (event) {
   const field = event.target.value
   const fieldId = event.target.id
   const fieldError = document.getElementById(`${fieldId}Error`)
@@ -46,25 +42,42 @@ function validateField(event) {
   }
 }
 //attach blur eventlisteners
-document.getElementById('firstname').addEventListener('blur', validateField);
-document.getElementById('lastname').addEventListener('blur', validateField);
+FNAME.addEventListener('blur', validateField);
+LNAME.addEventListener('blur', validateField);
 
 FORM.addEventListener('submit', function(e) {
   e.preventDefault();
-  const firstNameIsValid = document.getElementById('firstname').value !== '';
-  const lastNameIsValid = document.getElementById('lastname').value !== '';
-  if (firstNameIsValid && lastNameIsValid) {
-    submitEl.textContent = '';
-    const firstName = FORM.firstname.value;
-    const lastName = FORM.lastname.value;
-    const numHouse = parseInt(FORM.numhouse.value);
-    const houseSize = FORM.housesize.value;
-    start(firstName, lastName, numHouse, houseSize);
+  if (FNAME.value !== '' && LNAME.value !== '') {
+    SUBMIT.textContent = '';
+    start(FNAME.value, LNAME.value, parseInt(FORM.numhouse.value), FORM.housesize.value);
     saveLS(cfpData);
     renderTbl(cfpData)
     FORM.reset();
-  }
-  else{
-    submitEl.textContent = "Form requires first and last name";
+  } else {
+    SUBMIT.textContent = "Form requires first and last name";
   }
 })
+
+const add2 = function(...a){
+  return 2+a[3];
+}
+//Code comment below is considered default value (a=10)
+//-----------------------------------
+// const add2 = function(a=10){
+//   return 2+a;
+// }
+//-----------------------------------
+//add2(3);
+const result = add2(1,2,3,4);
+
+//spread argrument, set the (..a) into an array from my understanding
+// const add2 = function(...a){
+//   return 2+a;
+// }
+
+//IIFE
+const a = 3;
+(function(){
+  console.log('inside IIFE')
+  console.log(a)
+})(a);
