@@ -1,7 +1,7 @@
 import { FORM, TBL } from "./global.js";
 import { saveLS } from "./storage.js";
 
-const renderTblHeading = function() {
+const renderTblHeading = () => {
   TBL.innerHTML = "";
   const table = document.createElement("table");
   const thead = document.createElement("thead");
@@ -17,13 +17,13 @@ const renderTblHeading = function() {
   return table;
 }
 
-const onUpdate = function(index, data) {
+const onUpdate = (index, data) => {
   data.splice(index, 1);
   saveLS(data);
   renderTbl(data);
 }
 
-const renderTblBtn = function(index, data) {
+const renderTblBtn = (index, data) => {
   const td = document.createElement("td");
   const btnEdit = document.createElement("button");
   const btnDel = document.createElement("button");
@@ -31,7 +31,7 @@ const renderTblBtn = function(index, data) {
   btnDel.textContent = "Del";
   td.appendChild(btnEdit);
   td.appendChild(btnDel);
-  btnDel.addEventListener("click", function (e) {
+  btnDel.addEventListener("click", (e) => {
     if (data.length > 1) {
       console.log("del the chosen array");
       console.log(e);
@@ -42,7 +42,7 @@ const renderTblBtn = function(index, data) {
       renderTblHeading();
     }
   });
-  btnEdit.addEventListener("click", function (e) {
+  btnEdit.addEventListener("click", (e) => {
     console.log("edit the chosen array");
     if (data.length > 1) {
       let editArr = data[index];
@@ -66,7 +66,7 @@ const renderTblBtn = function(index, data) {
   return td;
 }
 
-const renderTBLBody = function(data) {
+const renderTBLBody = (data) => {
   const tbody = document.createElement("tbody");
   data.forEach(function (obj, index) {
     const tr = document.createElement("tr");
@@ -84,7 +84,7 @@ const renderTBLBody = function(data) {
   return tbody;
 }
 
-const renderTbl = function(data) {
+const renderTbl = (data) => {
   const table = renderTblHeading();
   const tbody = renderTBLBody(data);
   table.appendChild(tbody);

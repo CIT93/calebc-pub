@@ -3,7 +3,7 @@ import {deterHousePts, sizeHousePts} from "./funCF.js";
 import { FORM, FNAME, LNAME, SUBMIT } from "./global.js";
 import {saveLS, cfpData} from "./storage.js";
 
-const start = function (firstName, lastName, numHouse, houseSize) {
+const start = (firstName, lastName, numHouse, houseSize) =>{
   const fName = firstName;
   const lName = lastName;
   const houseHoldPTS = deterHousePts(numHouse);
@@ -28,7 +28,7 @@ if (cfpData.length > 0){
   renderTbl(cfpData)
 }
 
- const validateField = function (event) {
+ const validateField = (event) => {
   const field = event.target.value
   const fieldId = event.target.id
   const fieldError = document.getElementById(`${fieldId}Error`)
@@ -45,7 +45,7 @@ if (cfpData.length > 0){
 FNAME.addEventListener('blur', validateField);
 LNAME.addEventListener('blur', validateField);
 
-FORM.addEventListener('submit', function(e) {
+FORM.addEventListener('submit', e => {
   e.preventDefault();
   if (FNAME.value !== '' && LNAME.value !== '') {
     SUBMIT.textContent = '';
@@ -58,9 +58,10 @@ FORM.addEventListener('submit', function(e) {
   }
 })
 
-const add2 = function(...a){
-  return 2+a[3];
-}
+//rest op
+// const add2 = function(...a){
+//   return 2+a[3];
+// }
 //Code comment below is considered default value (a=10)
 //-----------------------------------
 // const add2 = function(a=10){
@@ -68,8 +69,13 @@ const add2 = function(...a){
 // }
 //-----------------------------------
 //add2(3);
-const result = add2(1,2,3,4);
+//const result = add2(1,2,3,4);
 
+//Arrow func
+const add2 = (a) => {
+  return 2 + a; 
+}
+const result = add2(100);
 //spread argrument, set the (..a) into an array from my understanding
 // const add2 = function(...a){
 //   return 2+a;

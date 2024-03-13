@@ -1,6 +1,6 @@
 //Code used for the functions in main can leave start function in main
 
-const deterHousePts = function(numInHouse) {
+const deterHousePts = function(numInHouse = 6) {
     console.log("Inside block scope deterHousePts");
   let houseHoldpts = 0;
     if (numInHouse === 1) {
@@ -21,7 +21,7 @@ const deterHousePts = function(numInHouse) {
     return houseHoldpts;
 }
 
-const sizeHousePts = function(size) {
+const sizeHousePts = function (size = "small") {
     console.log("Inside block scope sizeHousePts");
     let sizePts = 0;
       if (size === "large") {
