@@ -40,13 +40,13 @@ class FP {
     }
   }
   cfFoodPoints() {
-    if (this.foodPrint === "Domestic meat on a daily basis") {
+    if (this.foodPrint === "meatDaily") {
       this.foodPoints = 10;
-    } else if (this.foodPrint === "Domestic meat a few time a week") {
-      this.foodPoints = 7;
+    } else if (this.foodPrint === "meatWeekly") {
+      this.foodPoints = 8;
     } else if (this.foodPrint === "Vegetarian") {
       this.foodPoints = 4;
-    } else if (this.foodPrint === "Vegan") {
+    } else if (this.foodPrint === "VeganOrWild") {
       this.foodPoints = 2;
     }
   }

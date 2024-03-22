@@ -51,7 +51,7 @@ const renderTblBtn = (index, data) => {
       FORM.lastname.value = editArr.last;
       FORM.numhouse.value = editArr.houseMembers;
       FORM.housesize.value = editArr.houseSize;
-      FORM.foodCF.value = editArr.foodChoice
+      FORM.foodCF.value = editArr.foodPrint
       onUpdate(index, data);
     } else {
       let editArr = data[index];
@@ -60,7 +60,7 @@ const renderTblBtn = (index, data) => {
       FORM.lastname.value = editArr.last;
       FORM.numhouse.value = editArr.houseMembers;
       FORM.housesize.value = editArr.houseSize;
-      FORM.foodCF.value = editArr.foodChoice
+      FORM.foodCF.value = editArr.foodPrint
       onUpdate(index, data);
       renderTblHeading();
     }
@@ -73,7 +73,7 @@ const renderTBLBody = data => {
   data.forEach( (obj, index) => {
     const tr = document.createElement("tr");
     for (const [key, value] of Object.entries(obj)) {
-      if (key !== "last" && key !== "houseHoldpts" && key !== "houseSizePoints") {
+      if (key !== "last" && key !== "houseHoldpts" && key !== "houseSizePoints" && key !== "foodPoints") {
         const td = document.createElement("td");
         td.textContent = value;
         tr.appendChild(td);

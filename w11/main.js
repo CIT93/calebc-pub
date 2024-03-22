@@ -17,6 +17,7 @@ const start = (first, last, houseHoldMembers, houseSize) => {
     householdObj: houseHoldPTS,
     sizeholdObj: sizeHoldPTS,
     
+    
     totObj: total,
   });
 
