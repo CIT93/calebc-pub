@@ -72,13 +72,12 @@ const renderTBLBody = data => {
   const tbody = document.createElement("tbody");
   data.forEach( (obj, index) => {
     const tr = document.createElement("tr");
-    for (const [key, value] of Object.entries(obj)) {
-      if (key !== "last" && key !== "houseHoldpts" && key !== "houseSizePoints" && key !== "foodPoints") {
-        const td = document.createElement("td");
-        td.textContent = value;
+    const keys = ["first", "houseMembers", "houseSize", "foodPrint", "total"]
+    keys.forEach(key => {
+      const td = document.createElement("td");
+        td.textContent = obj[key];
         tr.appendChild(td);
-      }
-    }
+    })
     const td = renderTblBtn(index, data);
     tr.appendChild(td);
     tbody.appendChild(tr);
