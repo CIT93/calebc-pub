@@ -14,18 +14,21 @@
             <legend>Time for a Async Workout!</legend>
             <div>
                 <label>What exercise will be doing:</label>
-                <input type="text" id="exercise" name="exercise" maxlength="20"/>
-                <span id="exerciseError" class="error"></span>
+                <select id="exercise" required>
+                    <option value ="">---What are you feeling today?---</option>
+                    <option value="Pushups">Pushups</option>
+                    <option value="JumpingJacks">Jumping Jacks</option>
+                    <option value="ArmCircles">Arm Circles</option>
+                    <option value="Running">Run</option>
+                </select>
             </div>
             <div>
                 <label>Number of Reps we're doing?</label>
                 <input type="number" id="reps" name="reps" min= "1" max="100"/>
-                <span id="repsError" class="error"></span>
             </div>
             <div>
                 <label>How many seconds (ms)?</label>
                 <input type="number" id="minutes" name="minutes"/>
-                <span id="minutesError" class="error"></span>
             </div>
             <label>Are you ready?</label>
             <button type="submit">CLICK HERE TO START</button>

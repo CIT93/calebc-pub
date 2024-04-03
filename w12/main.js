@@ -13,7 +13,7 @@ function delayText(callback) {
     setTimeout(callback, 2000)
 }
 function delayText2(callback) {
-    OUTPUT2.textContent = "ANND STOP!"
+    OUTPUT2.textContent = "ANND STOP! Calculating your results..."
     setTimeout(callback, 2000)
 }
 function delayText3() {
@@ -28,19 +28,11 @@ function dOutput() {
     })
 }
 
-
 FORM.addEventListener('submit', function(e) {
     e.preventDefault();
-    //Need to figure out how to 
-    //add callbacks and tell user to start and stop
-    //add a delay text for user when opening up browser
-    //EDIT have the right idea but feel like im missing something...
-
     const eValue = EXERCISE.value;
     const rValue = REPS.value;
     const mValue = parseInt(MINUTES.value);
-
-
     DATA.push({
         exercise: eValue,
         reps: rValue,
@@ -51,25 +43,16 @@ FORM.addEventListener('submit', function(e) {
         delayText2(() => {
             dOutput();
         } );
+
         setTimeout(() => {
+
+            setTimeout(()=> {
+                OUTPUT.textContent='';
+                OUTPUT.style.display='block';
+                OUTPUT2.textContent='';
+                OUTPUT2.style.display='block';
+            }, mValue)
             delayText3();
         }, mValue)
     });
-
-
-    // setTimeout(() => {
-    //     delayText();
-
-    //     setTimeout(() => {
-    //         delayText2();
-
-    //         setTimeout(()=>{
-    //             dOutput();
-    //         }, mValue)
-
-    //     }, mValue)
-
-    // }, mValue)
-    
-
 })
