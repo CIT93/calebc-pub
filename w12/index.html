@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 12 - Pub Repo</title>
+    <script type = "module" src ="main.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<h1>Week 12 - Pub Repo</h1>
+<body>
+    <form id ="form">
+        <fieldset>
+            <legend>Time for a Async Workout!</legend>
+            <div>
+                <label>What exercise will be doing:</label>
+                <input type="text" id="exercise" name="exercise" maxlength="20"/>
+                <span id="exerciseError" class="error"></span>
+            </div>
+            <div>
+                <label>Number of Reps we're doing?</label>
+                <input type="number" id="reps" name="reps" min= "1" max="100"/>
+                <span id="repsError" class="error"></span>
+            </div>
+            <div>
+                <label>How many seconds (ms)?</label>
+                <input type="number" id="minutes" name="minutes"/>
+                <span id="minutesError" class="error"></span>
+            </div>
+            <label>Are you ready?</label>
+            <button type="submit">CLICK HERE TO START</button>
+            <span id ="SubmitError" class="error"></span>
+        </fieldset>
+    </form>
+    <div id="output"></div>
+    <div id="output2"></div>
+    <div id="output3"></div>
+    <div id="output4"></div>
+</body>
+</html>
