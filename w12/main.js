@@ -28,6 +28,7 @@ function dOutput() {
     })
 }
 
+
 FORM.addEventListener('submit', function(e) {
     e.preventDefault();
     const eValue = EXERCISE.value;
