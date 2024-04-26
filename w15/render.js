@@ -89,7 +89,7 @@ const renderTBLBody = data => {
 const calAvg = (data) => {
   const rTot = data.reduce((sum, ea) => sum + ea.total, 0);
   const tabR = document.getElementById("tab-HOF");
-  let newRow = tabR.insetRow(-1);
+  let newRow = tabR.insertRow(-1);
   let newCell = newRow.insertCell(0);
   let newLab = document.createTextNode(`Average FP: ${Math.floor(rTot/data.length)}`)
   newCell.appendChild(newLab)

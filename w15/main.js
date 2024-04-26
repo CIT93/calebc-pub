@@ -3,7 +3,7 @@ import {deterHousePts, sizeHousePts} from "./funCF.js";
 import { FORM, FNAME, LNAME, SUBMIT } from "./global.js";
 import {saveLS, cfpData} from "./storage.js";
 import { FP } from "./fp.js";
-import { addRow } from "./avgCF.js";
+
 
 const start = (first, last, houseHoldMembers, houseSize) => {
   const houseHoldPTS = deterHousePts(houseHoldMembers)
