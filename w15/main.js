@@ -53,7 +53,6 @@ FORM.addEventListener('submit', function(e) {
     cfpData.push(fpObj)
     saveLS(cfpData);
     renderTbl(cfpData)
-    addRow('tab-HOF')
     FORM.reset();
   } else {
     SUBMIT.textContent = "Form requires first and last name";

@@ -4,6 +4,7 @@ import { saveLS } from "./storage.js";
 const renderTblHeading = () => {
   TBL.innerHTML = "";
   const table = document.createElement("table");
+  table.setAttribute("id","tab-HOF")
   const thead = document.createElement("thead");
   const tr = document.createElement("tr");
   const headTextArr = ["Name", "HouseHold", "HouseSize","FoodChoice", "CF", "Action"];
@@ -85,10 +86,22 @@ const renderTBLBody = data => {
   return tbody;
 }
 
+const calAvg = (data) => {
+  const rTot = data.reduce((sum, ea) => sum + ea.total, 0);
+  const tabR = document.getElementById("tab-HOF");
+  let newRow = tabR.insetRow(-1);
+  let newCell = newRow.insertCell(0);
+  let newLab = document.createTextNode(`Average FP: ${Math.floor(rTot/data.length)}`)
+  newCell.appendChild(newLab)
+}
+
 const renderTbl = data => {
-  const table = renderTblHeading();
-  const tbody = renderTBLBody(data);
-  table.appendChild(tbody);
-  TBL.appendChild(table);
+  if (data.length !== 0) {
+    const table = renderTblHeading();
+    const tbody = renderTBLBody(data);
+    table.appendChild(tbody);
+    TBL.appendChild(table);
+    calAvg(data)
+  }
 }
 export { renderTbl};
