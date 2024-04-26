@@ -1,0 +1,24 @@
+This README.md file, explains on how the code from all files works:
+1. index.html file: 
+    - This file is the main display output as it will get the files from main.js, render.js, funCF.js and style.css.
+    some of the code that is in this file will display in the live server when opening it. 
+    For example: In the output, you can see the Title: Calulating Your Carbon Footprint Points. Underneath it has First Name and a box to put in the first name as well as Last Name. Same input box and a selection box for Members in household and Size of house. 
+    There is a limit with the amount of letters and numbers you can put in the boxes given in the html. In which after the user puts in their info it will in turn go to the main.js and render.js file
+2. main.js file: 
+    - This file is what I would call the "behind the scene" code. As you really don't see any of the code being displayed UNLESS if the code is called in console.log or called to the html. There are two import files at the top of the code which are functions from different js files reason for this is to make it less cluttery and more simple with what file does what. From there, this code (FORM.addEventListener) will grab the user's input and will put it into function start() which will: 1. Put all the inputs into varables. 2. Will put them in a array of objects. In some of the variables, there are functions that will take the user's input and pull them into another file called funCF.js which will grab the data and calculate and give back the acoording number for the Carbon Footprint. After the start(), the user's input will go into the renderTBL(cfpData) and will code it from there which is in the render.js file.
+3. funCF.js file:
+    - This file is to calculate the numbers of members in the household and as well as size of the house. The variable houseHoldpts and sizePts will be set to 0. Whatever the user puts in for their number (numInHouse) and size (size) both functions will find the number and size in the function coded. After finding both things in both functions it will return both variables houseHoldpts and sizePts and will be sent back to the main.js which will be put in the array of objects
+4. render.js file: 
+    - This file does two things: 1. render a table heading (renderTblHeading) will have the title (Name, houseMem, Size, and CF) in the function and be displayed in a table like format 2. Grab the user's input from the cfpData in the main.js and will bring the array of objects into renderTbl(data) and will put the user's input in a table like format. After doing both it will be exported back to the main.js file in which the main.js file will push it to the index.html file and will display it from there.
+5. style.css file:
+    - This file is more of a quality of life file being able to change some of the text's colors or the color of the background in the diplay output in html.
+BtnEdit.addEventListener():
+    - I would say that in order for us to edit the existing array we can use .splice() again but this time focus on what we wanted to edit. Given a for loop with i === index or a if statement we can switch it out and make user add a new input if needed/wanted to
+6. What is LocalStorage and Serialization?
+    - LocalStorage is data that allows you to stored key/value pairs in the browser with no expariation date even if the browser is closed. Ex. think of a website that saves your data and can call back to the data after closing or restarting your computer (if that makes sense). 
+    - Serializatoin is when data is able to be tranfer over by network or storage. It's a process of converting an Object into a string which can be restored. IN SIMPILAR TERMS: text format for storing and trasporting data .stringify() is exchanging data to/from a web server. Another way to look at it is moving data across web browsers or devices.
+
+## Understanding Functions PT.1
+* I think, I have a good understanding of the functions and how it works. I think a few things that I need to understand a little more is return functions, mainly because I don't use it much as the other function explained, but overall I have a good understanding of it. 
+## Understanding Functions PT.2
+* After watching the last video, There is a lot of functions that can be implemented which is interesting how they can be implemented (might implement them in Decision App). The new functions that I learned from this being the IIFE and Spread argument. I kind of knew the default and/or made sense to use (I think I would have stumble apon it eventually if I didn't knew what it was). I feel like if I were to use these types of functions in my code it will become a lot more easier for me to understand and use in the long run, but I do have a good understanding of the functions that were talked in the video.
