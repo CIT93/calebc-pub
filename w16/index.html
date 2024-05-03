@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 16 Pub-Repo - Carbon Footprint</title>
+    <script type= "module" src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<h1>Week 16 - Pub REPO </h1>
+<p>==============================================</p>
+<body>
+    <form id= "form">
+        <fieldset>
+            <legend>Calculating Your Carbon Footprint Points</legend>
+            <div>
+                <label>First Name:</label>
+                <input type="text" id="firstname" name="firstname" maxlength="20"/>
+                <span id = "firstnameError" class ="error"></span>
+            </div>
+            <div>    
+                <label>Last Name:</label>
+                <input type="text" id="lastname" name="lastname" maxlength="20"/>
+                <span id = "lastnameError" class ="error"></span>
+            </div>
+            <div>
+                <label>Count the members of your household:</label>
+                <input type="number" id="numhouse" min="1" max="6" required/>
+            </div>
+            <div>
+                <label>What is the size of your house:</label>
+                <select id="housesize" required>
+                    <option value="">---Please enter size of home---</option>
+                    <option value="apartment">Apartment</option>
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="large">Large</option>
+                </select>
+            </div>
+            <div>
+                <label>What type of foods do you eat?:</label>
+                <select id="foodCF" required>
+                    <option value="">---Please enter what you eat---</option>
+                    <option value="meatDaily">Domestic meat on a daily basis</option>
+                    <option value="meatWeekly">Domestic meat a few time a week</option>
+                    <option value="Vegetarian">Vegetarian</option>
+                    <option value="VeganOrWild">Vegan or Wild Meat</option>
+                </select>
+            </div>
+            <div>
+                <label>Evaluate your food sources</label>
+                <select name="foodSource" required>
+                    <option value="">---Sources of food---</option>
+                    <option value="packed">Prepacked food</option>
+                    <option value="balance">Good balance of fresh and convenience food</option>
+                    <option value="local">Only eat fresh, local grown, or hunted food</option>
+                </select>
+            </div>
+            <div>
+                <label>Evaluate your Water Consumption</label>
+                <select name="waterConsume" required>
+                    <option value="">---How many times you run your dishwasher and washing machine?---</option>
+                    <option value="3">More than 9 time a week</option>
+                    <option value="2">4-9 times a week for both</option>
+                    <option value="1">1-3 times a week for both</option>
+                    <option value="0">I don't have a dishwasher</option>
+                </select>
+                <br>
+                <label for="dish_washer">Do you have both dishwasher and washing machine?</label>
+                <input type="checkbox" name="dish_washer" id="both" checked>
+            </div>
+            <div>
+                <label>Household Purchases</label>
+                <select name="housePurchase" required>
+                    <option value="">---How many new items you buy within the year?---</option>
+                    <option value="10">More than 7 new items</option>
+                    <option value="8">Between 5-7 new items</option>
+                    <option value="6">Between 3-5 new items</option>
+                    <option value="4">less than 3 new items</option>
+                    <option value="2">Almost nothing but secondhanded items</option>
+                </select>
+            </div>
+            <button type="submit">Submit</button> <br>
+            <span id ="SubmitError" class="error"></span>
+        </fieldset>
+    </form>
+    <div id="tab-data">
+        <table id="tab-HOF"></table>
+    </div>
+    <div id="body-data"></div>
+    </body>
+</html>
