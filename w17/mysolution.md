@@ -1,0 +1,2 @@
+# WATER CONSUMPTION SOLUTION
+For coding I would do the same method like the food choice and make it calculate the user's usage of water. Create and add the following code for water consumption and then if they have dishwasher AND (empisizing it) washing machine then I would multiply by the given value by 2 doing a if statement 
